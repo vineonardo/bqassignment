@@ -1,0 +1,96 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+
+$light:                           #fff !default;
+$stable:                          #fafafa !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+
+
+/* imported from styles.scss */
+table.diamondsweeper-board {
+  td {
+    padding: 0;
+    border: 1px solid black;
+  }
+}
+
+.cell {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border: 2px solid transparent;
+  	background-size: 46px 46px !important;
+  	background: #EEE;
+  	display: flex;
+  	justify-content: center;
+	align-items: center;
+	border-radius: 6px;
+	box-sizing: border-box;
+	cursor: pointer;
+	transition: 0.3s ease all;
+
+  &.diamond {
+  	color: transparent;
+    background: #E00 url(../img/diamond.png) center center no-repeat;
+  }
+
+  &.arrow {
+    background: #00C url(../img/arrow.png) center center no-repeat;
+  }
+
+  &.unknown {
+    background: #FFC url(../img/question.png) center center no-repeat;
+  }
+
+  &:hover{
+  	border-color: #333;
+  }
+}
+
+
+.board{
+	list-style: none;
+	margin: 0 auto;
+	padding: 0;
+	width: 432px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+	li{
+		display: inline-flex;
+		list-style: none;
+		margin: 2px;
+		width: 49px;
+		height: 49px;
+		position: relative;
+	}
+}
