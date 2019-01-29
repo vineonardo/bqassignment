@@ -25,6 +25,5 @@ Requirements:
 To start the Application:
 
 * Install the dependencies (via `yarn install` or `npm install`)
-* Compile Assets: `npm run compile`
 * Run App: `ionic serve`
 * Browser window will open with webapp running with Live-reload enabled
