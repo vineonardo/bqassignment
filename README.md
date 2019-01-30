@@ -21,6 +21,7 @@ Requirements:
 
 * node.js (the app was built against v8.1.4, but any node > 6 should work)
 * npm
+* Ionic CLI
 
 To start the Application:
 

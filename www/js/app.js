@@ -13,7 +13,38 @@ app.run(function($ionicPlatform) {
   });
 })
 
-app.controller('HomeCtrl', function($scope) {
+app.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
+    $stateProvider
+       .state('home', {
+           url: '/home',
+           templateUrl: 'index.html',
+           controller: 'HomeCtrl',
+       })
+       /*.state('gameover', {
+           url: '/game-over',
+           views: {
+               'menuContent': {
+                   templateUrl: 'game-over.html',
+                   controller: 'GameOverCtrl'
+               }
+           }
+       })*/
+    $urlRouterProvider.otherwise('/home');
+});
+
+app.controller('MenuCtrl', function($scope) {
+//menu controller
+});
+
+app.controller('GameOverCtrl', function($scope) {
+  
+  //game over controller
+  
+  $scope.score = localStorage.getItem("score");
+
+});
+
+app.controller('HomeCtrl', function($scope, $state) {
 
 /* Preparing the board */
 
@@ -22,8 +53,9 @@ app.controller('HomeCtrl', function($scope) {
 
 var diamonds = [];
 var grid = [];
-var maxDiamonds = 6; //maximum diamonds to be plotted
+var maxDiamonds = 8; //maximum diamonds to be plotted
 var gridsize = 64; //square root of this number decides grid size
+$scope.score = 64;
 
 //function to check if value exists in the array
 function checkIfExists(arr,n){
@@ -43,7 +75,7 @@ function generateRandomNumber(){
 for (var i = 0; i < maxDiamonds; i++) {
   var temp = generateRandomNumber();
   checkIfExists(diamonds,temp);    
-  diamonds.push(temp);
+  diamonds.push({id:temp, found: false});
 }
 
 //creating repeatable grid for board
@@ -54,15 +86,44 @@ for (var j = 1; j <= gridsize; j++) {
 if(diamonds.length < maxDiamonds){
     var singleTemp = generateRandomNumber();
     checkIfExists(diamonds,singleTemp);
-    diamonds.push(singleTemp);
+    diamonds.push({id:singleTemp, found: false});
 }
 
 $scope.diamonds = diamonds;
+
+console.log($scope.diamonds);
+
 $scope.grid = grid;
 
 $scope.hasDiamond = function(cell,arr){
-  if(arr.includes(cell)){
+  var hd = arr.filter(function(d){
+    return d.id == cell
+  });
+
+  if(hd.length){
     return true;
+  }
+}
+
+$scope.count = diamonds.length;
+
+
+$scope.calcScore = function(c){
+
+  $scope.score = $scope.score - 1;
+
+  //set score in localstorage
+  //localStorage.setItem("score", $scope.score);
+
+  //calculate remaining 
+  var totalDiamonds = $(".cell.diamond").length;
+  var remainingDiamonds = $(".cell.diamond.open").length;
+
+  console.log(remainingDiamonds + "/" + totalDiamonds);
+
+  if (totalDiamonds == remainingDiamonds) {
+    alert("Game Over. Your score is " + $scope.score + ".");
+    location.reload();
   }
 }
 
