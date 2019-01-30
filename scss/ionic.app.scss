@@ -32,6 +32,12 @@ $royal:                           #886aea !default;
 $dark:                            #444 !default;
 
 
+body,.pane{
+	background: #222;
+	color: #FFF;
+}
+
+
 /* animations */
 .animated{
 	-webkit-animation-duration: 1s;
@@ -103,7 +109,7 @@ table.diamondsweeper-board {
 	right: 0;
 	bottom: 0;
 	border: 2px solid transparent;
-	background: #EEE url(../img/question.png) center center no-repeat;
+	background: #fff68f url(../img/question.png) center center no-repeat;
 	background-size: 24px 24px;
   	width: 100%;
     height: 100%;
@@ -119,30 +125,34 @@ table.diamondsweeper-board {
   &.arrow {
 
   	&.right{
+  		background-color: #EEE;
   		background-image: url(../img/arrow.png);	
   	}
   	&.left{
+  		background-color: #EEE;
   		background-image: url(../img/arrow-left.png);	
   	}
     
   }
 
-  &.empty {
-    
-  }
-
   &.open{
-  	background-color: rgba(255,0,0,0.1);
-  	border-color: rgba(255,0,0,0.05);
+  	background-color: #d24d57;
+  	border-color: #FFF;
 
-  	&.diamond {
+  	&.diamond{
+  		background-color: #d24d57;
 	    background-image: url(../img/diamond.png);
 	    background-size: 38px 38px;
+	}
+
+	&.empty{
+		background-color: #EEE;
+		border-color: #FFF;
 	}
   }
 
   &:hover{
-  	border-color: rgba(255,0,0,0.1);
+  	border-color: #FFF;
   }
 }
 
@@ -167,5 +177,15 @@ table.diamondsweeper-board {
 }
 
 .messages{
-	margin-bottom: 15px;
+	margin-bottom: 5px;
+	padding: 10px 0;
+}
+.messages *{
+	color: #FFF;
+	font-weight: normal;
+}
+
+.score-digit{
+	color: $balanced;
+	font-weight: bold;
 }

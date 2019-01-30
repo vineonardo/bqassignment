@@ -29,20 +29,19 @@
   <body ng-app="starter">
 
     <ion-pane>
-      <ion-header-bar class="bar-stable">
+      <ion-header-bar class="bar-positive">
         <h1 class="title">Diamond Sweep</h1>
       </ion-header-bar>
       <ion-content ng-controller="HomeCtrl">
         <div id="container" class="padding">
           <div>
             <div class="messages text-center">
-              <h3 class="h4">Score: <strong>{{score}}</strong></h3>
+              <h3 class="h4">Your Score: <strong class="score-digit">{{score}}</strong></h3>
               <div class="remaining"></div>
             </div>
               
               <ul class="board grid">
                 <li ng-repeat="item in grid track by $index">
-                  <span style="position: relative; z-index: 10">{{item}}</span>
                   <input type="checkbox" 
                   ng-class="hasDiamond(item, diamonds) ? 'cell diamond' : 'cell empty'"
                   ng-click="calcScore(item)" data-id="{{item}}"/>
