@@ -9875,7 +9875,7 @@ a.button {
   transition-duration: 0s; }
 
 body, .pane {
-  background: #222;
+  background: #222 url(../img/map.jpg) center center no-repeat;
   color: #FFF; }
 
 /* animations */
@@ -9963,11 +9963,21 @@ table.diamondsweeper-board td {
   .cell:hover {
     border-color: #FFF; }
 
+#container {
+  width: 444px;
+  margin: 0 auto; }
+  #container h1 {
+    color: #FFF;
+    font-family: cursive;
+    font-weight: bold;
+    text-align: center;
+    line-height: 2.4;
+    text-shadow: 0px 1px 6px rgba(0, 0, 0, 0.4); }
+
 .board {
   list-style: none;
   margin: 0 auto;
   padding: 0;
-  width: 432px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap; }
@@ -9981,7 +9991,9 @@ table.diamondsweeper-board td {
 
 .messages {
   margin-bottom: 5px;
-  padding: 10px 0; }
+  padding: 10px 15px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 6px; }
 
 .messages * {
   color: #FFF;
