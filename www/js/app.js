@@ -91,6 +91,7 @@ if(diamonds.length < maxDiamonds){
 
 $scope.diamonds = diamonds;
 
+localStorage.setItem("map", diamonds);
 console.log($scope.diamonds);
 
 $scope.grid = grid;
@@ -111,20 +112,17 @@ $scope.count = diamonds.length;
 $scope.calcScore = function(c){
 
   $scope.score = $scope.score - 1;
-
   //set score in localstorage
-  //localStorage.setItem("score", $scope.score);
 
   //calculate remaining 
   var totalDiamonds = $(".cell.diamond").length;
   var remainingDiamonds = $(".cell.diamond.open").length;
 
-  console.log(remainingDiamonds + "/" + totalDiamonds);
-
   if (totalDiamonds == remainingDiamonds) {
     alert("Game Over. Your score is " + $scope.score + ".");
     location.reload();
   }
+
 }
 
 

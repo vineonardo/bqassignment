@@ -42,24 +42,12 @@
               
               <ul class="board grid">
                 <li ng-repeat="item in grid track by $index">
+                  <span style="position: relative; z-index: 10">{{item}}</span>
                   <input type="checkbox" 
                   ng-class="hasDiamond(item, diamonds) ? 'cell diamond' : 'cell empty'"
-                  ng-click="calcScore(item)" />
+                  ng-click="calcScore(item)" data-id="{{item}}"/>
                 </li>
               </ul>
-
-            <!-- <hr/>
-
-            <span>{{count}} of {{diamonds.length}} remaining</span>
-
-            <ul>
-              <li ng-repeat="d in diamonds">
-                <label ng-click="calcScore()">
-                  <input type="checkbox" ng-model="d.found"/>
-                  <span>{{d.found}} - {{d.id}}</span>
-                </label>
-              </li>
-            </ul> -->
 
           </div>
         </div>
