@@ -9940,8 +9940,10 @@ table.diamondsweeper-board td {
   overflow: hidden;
   user-select: none;
   -webkit-appearance: none; }
-  .cell.arrow {
+  .cell.arrow.right {
     background-image: url(../img/arrow.png); }
+  .cell.arrow.left {
+    background-image: url(../img/arrow-left.png); }
   .cell.open {
     background-color: rgba(255, 0, 0, 0.1);
     border-color: rgba(255, 0, 0, 0.05); }

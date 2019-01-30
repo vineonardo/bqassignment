@@ -38,7 +38,7 @@ $(function(){
 		}
 
 		if ($(this).hasClass("empty")) {
-			$(".cell").removeClass("arrow");
+			$(".cell").removeClass("arrow left right");
 			$(this).addClass("arrow");
 
 			//get current data id
@@ -47,7 +47,12 @@ $(function(){
 			//get the nearest diamond id
 			var next = closest(item,map);
 
-			console.log(next);
+			if (item > next) {
+				$(this).addClass("left");
+			}else{
+				$(this).addClass("right");
+			}
+			
 		}
 
 		if ($(this).hasClass("diamond")) {

@@ -117,7 +117,14 @@ table.diamondsweeper-board {
 	-webkit-appearance: none;
 
   &.arrow {
-    background-image: url(../img/arrow.png);
+
+  	&.right{
+  		background-image: url(../img/arrow.png);	
+  	}
+  	&.left{
+  		background-image: url(../img/arrow-left.png);	
+  	}
+    
   }
 
   &.empty {
